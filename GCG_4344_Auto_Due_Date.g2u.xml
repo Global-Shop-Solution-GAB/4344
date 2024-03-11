@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>217</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>217</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>217</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.Preflight.Start</string>
+        <string />
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.sSql.Declare(String)</string>
+        <string>V.Local.iDays.Declare(Long)</string>
+        <string>V.Local.dDate.Declare(Date)</string>
+        <string>V.Local.sDueDate.Declare(String)</string>
+        <string>V.Local.sTemp.Declare(String)</string>
+        <string />
+        <string>F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)</string>
+        <string />
+        <string>V.Local.sTemp.RedimPreserve(0,2)</string>
+        <string />
+        <string>F.Intrinsic.Control.SelectCase(V.Caller.Hook)</string>
+        <string>	F.Intrinsic.Control.Case(11560)</string>
+        <string>		V.Passed.GAB-LBL-1.Set("Default Push Out Due Date")</string>
+        <string>		V.Passed.GAB-LBL-2.Set("Push Out Due Date")</string>
+        <string>		V.Passed.GAB-LBL-3.Set("Use Default")</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-TEXT-1","PL",520)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-TEXT-1","PT",89)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-TEXT-1","PW",60)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-1","PL",520)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-1","PT",72)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-1","PW",160)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-CHK-1","PL",590)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-CHK-1","PT",90)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-CHK-1","PW",15)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-3","PL",610)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-3","PT",90)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-3","PW",75)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-1,"HIDE",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-TEXT-1,"HIDE",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-1,"LOCK",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-TEXT-1,"LOCK",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-CHK-1,"HIDE",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-3,"HIDE",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-CHK-1,"LOCK",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-3,"LOCK",0)</string>
+        <string />
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-TEXT-2","PL",695)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-TEXT-2","PT",89)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-TEXT-2","PW",60)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-2","PL",695)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-2","PT",72)</string>
+        <string>		F.Intrinsic.Variable.SetProperty("GAB-LBL-2","PW",100)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-2,"HIDE",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-TEXT-2,"HIDE",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-2,"LOCK",0)</string>
+        <string>		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-TEXT-2,"LOCK",0)</string>
+        <string />
+        <string>		V.Local.sSql.Set("Select DEFAULT_WEEKS From GCG_4344_DueDate_Cal")</string>
+        <string>		F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)</string>
+        <string>		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,&lt;&gt;,True)</string>
+        <string>			V.Passed.GAB-TEXT-1.Set(V.ODBC.con!rst.FieldValLong!Default_Weeks)</string>
+        <string>		F.Intrinsic.Control.Else</string>
+        <string>			V.Passed.GAB-TEXT-1.Set("")</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string>		F.ODBC.con!rst.Close</string>
+        <string>		</string>
+        <string>		V.Passed.GAB-CHK-1.Set("N")</string>
+        <string>'		V.Passed.GAB-CHK-1.Set("Y")</string>
+        <string>'		F.Intrinsic.Control.If(V.Passed.GAB-CHK-1,=,"Y")</string>
+        <string>'			F.Intrinsic.Control.If(V.Passed.GAB-TEXT-1,&lt;&gt;,"")</string>
+        <string>'				F.Intrinsic.Math.Mult(V.Passed.GAB-TEXT-1.Long,7,V.Local.iDays)</string>
+        <string>'				F.Intrinsic.String.Left(V.Passed.000023,4,V.Local.sTemp(0))</string>
+        <string>'				F.Intrinsic.String.Mid(V.Passed.000023,5,2,V.Local.sTemp(1))</string>
+        <string>'				F.Intrinsic.String.Right(V.Passed.000023,2,V.Local.sTemp(2))</string>
+        <string>'				F.Intrinsic.String.Build("{0}/{1}/{2}",V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(0),V.Local.sDueDate)</string>
+        <string>'				F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Local.sDueDate.DateComp,V.Local.dDate)</string>
+        <string>'				F.Intrinsic.String.Format(V.Local.dDate,"YYYYMMDD",V.Local.sDueDate)</string>
+        <string>'				V.Passed.000024.Set(V.Local.sDueDate)</string>
+        <string>'			F.Intrinsic.Control.Else</string>
+        <string>'				V.Passed.000024.Set(V.Passed.000023)</string>
+        <string>'			F.Intrinsic.Control.EndIf</string>
+        <string>'		F.Intrinsic.Control.Else</string>
+        <string>'			F.Intrinsic.Control.If(V.Passed.GAB-TEXT-2,&lt;&gt;,"")</string>
+        <string>'				F.Intrinsic.Math.Mult(V.Passed.GAB-TEXT-2.Long,7,V.Local.iDays)</string>
+        <string>'				F.Intrinsic.String.Left(V.Passed.000023,4,V.Local.sTemp(0))</string>
+        <string>'				F.Intrinsic.String.Mid(V.Passed.000023,5,2,V.Local.sTemp(1))</string>
+        <string>'				F.Intrinsic.String.Right(V.Passed.000023,2,V.Local.sTemp(2))</string>
+        <string>'				F.Intrinsic.String.Build("{0}/{1}/{2}",V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(0),V.Local.sDueDate)</string>
+        <string>'				F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Local.sDueDate.DateComp,V.Local.dDate)</string>
+        <string>'				F.Intrinsic.String.Format(V.Local.dDate,"YYYYMMDD",V.Local.sDueDate)</string>
+        <string>'				V.Passed.000024.Set(V.Local.sDueDate)</string>
+        <string>'			F.Intrinsic.Control.Else</string>
+        <string>'				V.Passed.000024.Set(V.Passed.000023)</string>
+        <string>'			F.Intrinsic.Control.EndIf</string>
+        <string>'		F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>	F.Intrinsic.Control.Case(11565)</string>
+        <string>		V.Local.sSql.Set("Select DEFAULT_WEEKS From GCG_4344_DueDate_Cal")</string>
+        <string>		F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)</string>
+        <string>		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,&lt;&gt;,True)</string>
+        <string>			V.Passed.GAB-TEXT-1.Set(V.ODBC.con!rst.FieldValLong!Default_Weeks)</string>
+        <string>		F.Intrinsic.Control.Else</string>
+        <string>			V.Passed.GAB-TEXT-1.Set("")</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string>		F.ODBC.con!rst.Close</string>
+        <string />
+        <string>	F.Intrinsic.Control.Case(11945)</string>
+        <string>		F.Intrinsic.Control.If(V.Passed.GAB-CHK-1,=,"Y")</string>
+        <string>			F.Intrinsic.Control.If(V.Passed.GAB-TEXT-1,&lt;&gt;,"")</string>
+        <string>				F.Intrinsic.Math.Mult(V.Passed.GAB-TEXT-1.Long,7,V.Local.iDays)</string>
+        <string>				F.Intrinsic.String.Left(V.Passed.000023,4,V.Local.sTemp(0))</string>
+        <string>				F.Intrinsic.String.Mid(V.Passed.000023,5,2,V.Local.sTemp(1))</string>
+        <string>				F.Intrinsic.String.Right(V.Passed.000023,2,V.Local.sTemp(2))</string>
+        <string>				F.Intrinsic.String.Build("{0}/{1}/{2}",V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(0),V.Local.sDueDate)</string>
+        <string>				F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Local.sDueDate.DateComp,V.Local.dDate)</string>
+        <string>				F.Intrinsic.String.Format(V.Local.dDate,"YYYYMMDD",V.Local.sDueDate)</string>
+        <string>				V.Passed.000024.Set(V.Local.sDueDate)</string>
+        <string>			F.Intrinsic.Control.Else</string>
+        <string>				V.Passed.000024.Set(V.Passed.000023)</string>
+        <string>			F.Intrinsic.Control.EndIf</string>
+        <string>		F.Intrinsic.Control.Else</string>
+        <string>			F.Intrinsic.Control.If(V.Passed.GAB-TEXT-2,&lt;&gt;,"")</string>
+        <string>				F.Intrinsic.Math.Mult(V.Passed.GAB-TEXT-2.Long,7,V.Local.iDays)</string>
+        <string>				F.Intrinsic.String.Left(V.Passed.000023,4,V.Local.sTemp(0))</string>
+        <string>				F.Intrinsic.String.Mid(V.Passed.000023,5,2,V.Local.sTemp(1))</string>
+        <string>				F.Intrinsic.String.Right(V.Passed.000023,2,V.Local.sTemp(2))</string>
+        <string>				F.Intrinsic.String.Build("{0}/{1}/{2}",V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(0),V.Local.sDueDate)</string>
+        <string>				F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Local.sDueDate.DateComp,V.Local.dDate)</string>
+        <string>				F.Intrinsic.String.Format(V.Local.dDate,"YYYYMMDD",V.Local.sDueDate)</string>
+        <string>				V.Passed.000024.Set(V.Local.sDueDate)</string>
+        <string>			F.Intrinsic.Control.Else</string>
+        <string>				V.Passed.000024.Set(V.Passed.000023)</string>
+        <string>			F.Intrinsic.Control.EndIf</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>	F.Intrinsic.Control.Case(11940)</string>
+        <string>		F.Intrinsic.Control.If(V.Passed.GAB-TEXT-1,&lt;&gt;,"")</string>
+        <string>			V.Local.sSql.Set("Select REC_ID, DEFAULT_WEEKS From GCG_4344_DueDate_Cal")</string>
+        <string>			F.ODBC.Connection!con.OpenLocalRecordsetRW("rst",V.Local.sSql)</string>
+        <string>			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)</string>
+        <string>				F.ODBC.con!rst.AddNew</string>
+        <string>				F.ODBC.con!rst.Set!Rec_ID(1)</string>
+        <string>			F.Intrinsic.Control.Else</string>
+        <string>				F.Intrinsic.Control.If(V.Passed.GAB-TEXT-1.Long,=,V.ODBC.con!rst.FieldValLong!Default_Weeks)</string>
+        <string>					F.Intrinsic.Control.CallSub(exit)</string>
+        <string>				F.Intrinsic.Control.EndIf</string>
+        <string>			F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>			F.ODBC.con!rst.Set!Default_Weeks(V.Passed.GAB-TEXT-1.Long)</string>
+        <string>			F.ODBC.con!rst.Update</string>
+        <string>			F.ODBC.con!rst.Close</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>	F.Intrinsic.Control.Case(11941)</string>
+        <string>		F.Intrinsic.Control.If(V.Passed.GAB-CHK-1,=,"Y")</string>
+        <string>			F.Intrinsic.Control.If(V.Passed.GAB-TEXT-1,&lt;&gt;,"")</string>
+        <string>				F.Intrinsic.Math.Mult(V.Passed.GAB-TEXT-1.Long,7,V.Local.iDays)</string>
+        <string>				F.Intrinsic.String.Left(V.Passed.000023,4,V.Local.sTemp(0))</string>
+        <string>				F.Intrinsic.String.Mid(V.Passed.000023,5,2,V.Local.sTemp(1))</string>
+        <string>				F.Intrinsic.String.Right(V.Passed.000023,2,V.Local.sTemp(2))</string>
+        <string>				F.Intrinsic.String.Build("{0}/{1}/{2}",V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(0),V.Local.sDueDate)</string>
+        <string>				F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Local.sDueDate.DateComp,V.Local.dDate)</string>
+        <string>				F.Intrinsic.String.Format(V.Local.dDate,"YYYYMMDD",V.Local.sDueDate)</string>
+        <string>				V.Passed.000024.Set(V.Local.sDueDate)</string>
+        <string>			F.Intrinsic.Control.Else</string>
+        <string>				V.Passed.000024.Set(V.Passed.000023)</string>
+        <string>			F.Intrinsic.Control.EndIf</string>
+        <string>		F.Intrinsic.Control.Else</string>
+        <string>			F.Intrinsic.Control.If(V.Passed.GAB-TEXT-2,&lt;&gt;,"")</string>
+        <string>				F.Intrinsic.Math.Mult(V.Passed.GAB-TEXT-2.Long,7,V.Local.iDays)</string>
+        <string>				F.Intrinsic.String.Left(V.Passed.000023,4,V.Local.sTemp(0))</string>
+        <string>				F.Intrinsic.String.Mid(V.Passed.000023,5,2,V.Local.sTemp(1))</string>
+        <string>				F.Intrinsic.String.Right(V.Passed.000023,2,V.Local.sTemp(2))</string>
+        <string>				F.Intrinsic.String.Build("{0}/{1}/{2}",V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(0),V.Local.sDueDate)</string>
+        <string>				F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Local.sDueDate.DateComp,V.Local.dDate)</string>
+        <string>				F.Intrinsic.String.Format(V.Local.dDate,"YYYYMMDD",V.Local.sDueDate)</string>
+        <string>				V.Passed.000024.Set(V.Local.sDueDate)</string>
+        <string>			F.Intrinsic.Control.Else</string>
+        <string>				V.Passed.000024.Set(V.Passed.000023)</string>
+        <string>			F.Intrinsic.Control.EndIf</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string>F.Intrinsic.Control.EndSelect</string>
+        <string />
+        <string>F.Intrinsic.Control.CallSub(exit)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4344_Auto_Due_Date.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Exit.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Exit_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>F.ODBC.Connection!con.Close</string>
+        <string>F.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Exit_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4344_Auto_Due_Date.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Exit.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$GCG_4344_Auto_Due_Date.g2u$}$RLK$}$3/2/2017 12:05:36 PM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>162</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>2</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>4</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>193</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>195</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>215</Y>
+        </EndPoint>
+        <Text>Program.Sub.Exit</Text>
+        <DisplayText>Program.Sub.Exit</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>217</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>219</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>

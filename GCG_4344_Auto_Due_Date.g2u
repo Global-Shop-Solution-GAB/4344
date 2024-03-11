@@ -1,0 +1,100 @@
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.iDays.Declare(Long)
+V.Local.dDate.Declare(Date)
+V.Local.sDueDate.Declare(String)
+V.Local.sTemp.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+V.Local.sTemp.RedimPreserve(0,2)
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.Case(11560)
+		V.Passed.GAB-LBL-3.Set("Push Out Due Date")
+		F.Intrinsic.Variable.SetProperty("GAB-CHK-1","PL",128)
+		F.Intrinsic.Variable.SetProperty("GAB-CHK-1","PT",390)
+		F.Intrinsic.Variable.SetProperty("GAB-CHK-1","PW",15)
+		F.Intrinsic.Variable.SetProperty("GAB-LBL-3","PL",148)
+		F.Intrinsic.Variable.SetProperty("GAB-LBL-3","PT",390)
+		F.Intrinsic.Variable.SetProperty("GAB-LBL-3","PW",160)
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-CHK-1,"HIDE",0)
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-3,"HIDE",0)
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-CHK-1,"LOCK",0)
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-3,"LOCK",0)
+		V.Passed.GAB-CHK-1.Set("N")
+
+	F.Intrinsic.Control.Case(11565)
+		V.Passed.GAB-CHK-1.Set("N")
+
+	F.Intrinsic.Control.Case(11945)
+		V.Local.sSql.Set("Select DEFAULT_WEEKS From GCG_4344_DueDate_Cal")
+		F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+		
+		F.Intrinsic.Control.If(V.Passed.GAB-CHK-1,=,"Y")
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+				F.Intrinsic.Math.Mult(V.ODBC.con!rst.FieldValLong!Default_Weeks,7,V.Local.iDays)
+'				F.Intrinsic.String.LPad(V.Passed.000023,"0",8,V.Local.sDueDate)
+				V.Local.sDueDate.Set(V.Passed.000023)
+				F.Intrinsic.String.Left(V.Local.sDueDate,4,V.Local.sTemp(0))
+				F.Intrinsic.String.Mid(V.Local.sDueDate,5,2,V.Local.sTemp(1))
+				F.Intrinsic.String.Right(V.Local.sDueDate,2,V.Local.sTemp(2))
+				F.Intrinsic.String.Build("{0}/{1}/{2}",V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(0),V.Local.sDueDate)
+				F.Intrinsic.Date.DateAdd("D",V.Local.iDays,V.Local.sDueDate.DateComp,V.Local.dDate)
+				F.Intrinsic.String.Format(V.Local.dDate,"YYYYMMDD",V.Local.sDueDate)
+'				F.Intrinsic.String.Format(V.Local.dDate,"MMDDYYYY",V.Local.sDueDate)
+				V.Passed.000024.Set(V.Local.sDueDate)
+			F.Intrinsic.Control.Else
+				V.Passed.000024.Set(V.Passed.000023)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			V.Passed.000024.Set(V.Passed.000023)
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.CallSub(exit)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4344_Auto_Due_Date.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Exit.Start
+F.Intrinsic.Control.SetErrorHandler("Exit_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Exit_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4344_Auto_Due_Date.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Exit.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4344_Auto_Due_Date.g2u$}$RLK$}$3/2/2017 12:05:36 PM$}$False
+Program.Sub.Comments.End

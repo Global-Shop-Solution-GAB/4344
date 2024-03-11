@@ -1,0 +1,187 @@
+Program.Sub.ScreenSU.Start
+Gui.SS_Form1..create
+Gui.SS_Form1..caption("Due Date Push Weeks")
+Gui.SS_Form1..size(4620,1725)
+Gui.SS_Form1..position(0,0)
+Gui.SS_Form1..alwaysontop(False)
+Gui.SS_Form1..fontname("Arial")
+Gui.SS_Form1..fontsize(8)
+Gui.SS_Form1..forecolor(0)
+Gui.SS_Form1..fontstyle(,,)
+Gui.SS_Form1..BackColor(-2147483633)
+Gui.SS_Form1..controlbox(True)
+Gui.SS_Form1..maxbutton(False)
+Gui.SS_Form1..minbutton(False)
+Gui.SS_Form1..mousepointer(0)
+Gui.SS_Form1..moveable(True)
+Gui.SS_Form1..sizeable(False)
+Gui.SS_Form1..ShowInTaskBar(True)
+Gui.SS_Form1..titlebar(True)
+Gui.SS_Form1..MinX(0)
+Gui.SS_Form1..MinY(0)
+Gui.SS_Form1..Event(UnLoad,SS_Form1_UnLoad)
+Gui.SS_Form1.lbl_txt_Weeks.create(label,"Enter number of weeks to push due date.",True,3435,195,1,105,135,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txt_Weeks.LabelStretch(True)
+Gui.SS_Form1.txt_Weeks.create(textbox,"",True,1800,300,1,105,330,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txt_Weeks.tabstop(True)
+Gui.SS_Form1.txt_Weeks.tabindex(1)
+Gui.SS_Form1.txt_Weeks.NumericOnly(True)
+Gui.SS_Form1.txt_Weeks.Event(GotFocus,txt_Weeks_GotFocus)
+Gui.SS_Form1.txt_Weeks.Event(Change,txt_Weeks_Change)
+Gui.SS_Form1.cmd_Save.create(button)
+Gui.SS_Form1.cmd_Save.Caption("Save")
+Gui.SS_Form1.cmd_Save.visible(True)
+Gui.SS_Form1.cmd_Save.size(1005,360)
+Gui.SS_Form1.cmd_Save.position(105,750)
+Gui.SS_Form1.cmd_Save.enabled(True)
+Gui.SS_Form1.cmd_Save.fontname("Arial")
+Gui.SS_Form1.cmd_Save.fontsize(8)
+Gui.SS_Form1.cmd_Save.tabstop(True)
+Gui.SS_Form1.cmd_Save.tabindex(2)
+Gui.SS_Form1.cmd_Save.Event(Click,cmd_Save_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+Gui.SS_Form1.cmd_Save.Enabled(False)
+
+V.Local.sSql.Set("Select REC_ID, DEFAULT_WEEKS From GCG_4344_DueDate_Cal")
+F.ODBC.Connection!con.OpenLocalRecordsetRW("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+	Gui.SS_Form1.txt_Weeks.Text(V.ODBC.con!rst.FieldValLong!Default_Weeks)
+F.Intrinsic.Control.EndIf
+
+F.ODBC.con!rst.Close
+
+Gui.SS_Form1..Show
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4344_Push_Weeks.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.SS_Form1_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("SS_Form1_UnLoad_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("SS_Form1_UnLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4344_Push_Weeks.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.SS_Form1_UnLoad.End
+
+Program.Sub.cmd_Save_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_Save_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+
+'updating default pushout weeks
+V.Local.sSql.Set("Select REC_ID, DEFAULT_WEEKS From GCG_4344_DueDate_Cal")
+F.ODBC.Connection!con.OpenLocalRecordsetRW("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+	F.ODBC.con!rst.AddNew
+	F.ODBC.con!rst.Set!Rec_ID(1)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.SS_Form1!txt_Weeks.Text,=,V.ODBC.con!rst.FieldValLong!Default_Weeks)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.ODBC.con!rst.Set!Default_Weeks(V.Screen.SS_Form1!txt_Weeks.Text)
+F.ODBC.con!rst.Update
+F.ODBC.con!rst.Close
+
+Gui.SS_Form1.cmd_Save.Enabled(False)
+			
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_Save_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4344_Push_Weeks.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmd_Save_Click.End
+
+Program.Sub.txt_Weeks_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txt_Weeks_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.SS_Form1.txt_Weeks.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_Weeks_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4344_Push_Weeks.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.txt_Weeks_GotFocus.End
+
+Program.Sub.txt_Weeks_Change.Start
+F.Intrinsic.Control.SetErrorHandler("txt_Weeks_Change_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.SS_Form1.cmd_Save.Enabled(True)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_Weeks_Change_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4344_Push_Weeks.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.txt_Weeks_Change.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4344_Push_Weeks$}$RLK$}$3/9/2017 6:07:35 PM$}$True
+Program.Sub.Comments.End
+
+Program.Sub.ScreenSS.Start
+SS_Form1{{CAPTION::Due Date Push Weeks
+SS_Form1.CTRL{{NAME::txt_Weeks\\TYPE::2\\CAPTION::Enter number of weeks to push due date.\\TABSTOP::1\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::cmd_Save\\TYPE::5\\CAPTION::Save\\TABSTOP::2\\GROUP::-1\\BROWSER::0\\SIZE::1
+
+Program.Sub.ScreenSS.End
+
